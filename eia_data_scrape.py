@@ -33,5 +33,5 @@ states_table = table[~table.State.isin(remove_list)]
 # Sort by State and reset index
 states_table.sort_values(by=["State"], inplace = True)
 states_table.reset_index(drop=True, inplace = True)
-states_table.to_csv('eia_data_scrape.csv')
+states_table.to_csv('csv/eia_data_scrape.csv')
 
