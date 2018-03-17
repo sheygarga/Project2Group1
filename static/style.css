@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 92vh;
+    background-color: #ffffff;
+    
+}
+
+#sidebar.active {
+    margin-left: -250px;
+    
+}
+
+a {
+    color: 	#f890e7;
+    font-weight: bold;
+}
+
+h3 {
+    color: 	#0bd3d3;
+    font-weight: bold;
+    margin-left: 10px;
+    text-align: center;
+}
+
+#sidebar-link{
+    margin-left: 65px;
+}
