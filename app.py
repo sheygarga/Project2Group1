@@ -64,13 +64,10 @@ def index():
 def rawdata():
     return render_template("rawdata.html")
 
-<<<<<<< HEAD
 @app.route("/heatmap")
 def heatmap():
     return render_template("heatmap.html")
-=======
 
->>>>>>> 72ac366f9f2970423b0338765582c6c1dec78d27
 
 
 
