@@ -9,7 +9,9 @@ from flask import (
    redirect)
 import numpy as np
 import pandas as pd
-
+import plotly.plotly as py
+import plotly.graph_objs as go
+import matplotlib.pyplot as plt
 
 # 2. Create an app
 app = Flask(__name__)
@@ -62,9 +64,9 @@ def testingsql():
         })
     return jsonify(returned_data)
 
-
-
-
+@app.route("/heatmap")
+def heatmap():
+    return render_template("heatmap.html")
 
 
 
