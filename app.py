@@ -26,20 +26,32 @@ class Solar(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     
-    State = db.Column(db.String(50))
-    Abbr = db.Column(db.String(50))
-    Electric_Cost = db.Column(db.Float(4))
-    Install_Date = db.Column(db.Date)
-    Zipcode = db.Column(db.Float(6))
-    Size_kw = db.Column(db.Float(5))
-    Cost_per_Watt = db.Column(db.Float(15))
-    Range = db.Column(db.String(50))
-    Cancer_Rate = db.Column(db.Float(5))
+    state = db.Column(db.String(50))
+    abbr = db.Column(db.String(50))
+    electric_Cost = db.Column(db.Float(4))
+    install_Date = db.Column(db.Date)
+    zipcode = db.Column(db.Float(6))
+    size_kw = db.Column(db.Float(5))
+    cost_per_Watt = db.Column(db.Float(15))
+    c_range = db.Column(db.String(50))
+    cancer_Rate = db.Column(db.Float(5))
 
     def __repr__(self):
-        return '<Solar %r>' % (self.State)
+        return '<Solar %r>' % (self.state)
 
+class Install(db.Model):
+    __tablename__ = 'installs_ecost'
 
+    state = db.Column(db.String(50), primary_key = True)
+    abbr = db.Column(db.String(50))
+    size_kW = db.Column(db.Float(10))
+    size_one = db.Column(db.Float(10))
+    size_two = db.Column(db.Float(10))
+    size_three = db.Column(db.Float(10))
+    cost = db.Column(db.Float(4))
+
+    def __repr__(self):
+        return '<Install %r>' % (self.state)
 
 
 @app.route("/")
@@ -50,21 +62,9 @@ def index():
 def rawdata():
     return render_template("rawdata.html")
 
-@app.route("/testsql")
-def testingsql():
-    results = db.session.query(Solar.State, Solar.Abbr).all() 
-    returned_data = []
-
-    for result in results:
-        returned_data.append({
-            "State_name":result[0],
-            "State_abbr":result[1]
-        })
-    return jsonify(returned_data)
-
-
-
-
+@app.route("/heatmap")
+def heatmap():
+    return render_template("heatmap.html")
 
 
 
