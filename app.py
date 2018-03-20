@@ -84,7 +84,16 @@ def high_heatmap():
 def cost_heatmap():
     return render_template("elecCost.html")
 
+@app.route("/chartData")
+def chartData():
+    results = db.session.query(
+        Install.state, Install.size_kW, Install.size_one, Install.size_two, Install.size_three).all()
+    return jsonify(results)
 
+@app.route("/chart")
+def chart():
+    return render_template("chart.html")
+   
 
 if __name__ == "__main__":
     app.run(debug=True)
