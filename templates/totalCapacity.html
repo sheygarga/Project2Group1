@@ -130,7 +130,7 @@
             <div id="table-div">
                     <!-- Change the csv file path to modify the table -->
                     <script type="text/javascript" charset="utf-8">
-                        d3.text("/static/csv/skin_map_incidence.csv", function (data) {
+                        d3.text("/static/csv/total_kw_table.csv", function (data) {
                             var parsedCSV = d3.csv.parseRows(data);
         
                             var container = d3.select("#table-div")
