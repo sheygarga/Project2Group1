@@ -23,7 +23,7 @@ Plotly.d3.csv("/static/csv/skin_map_incidence.csv", function (err, rows) {
     }
   };
 
-  Plotly.plot(myDiv, data, layout, {
+  Plotly.plot(cancerDiv, data, layout, {
     showLink: false
   });
 

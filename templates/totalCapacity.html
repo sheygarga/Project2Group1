@@ -32,13 +32,13 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active">
+                        <li>
                             <a href="/">Dashboard
-                                <span class="sr-only">(current)</span>
+                                
                             </a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Heatmaps
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Heatmaps<span class="sr-only">(current)</span>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -46,6 +46,9 @@
                                     <a href="/cancer-rate">Cancer Rate</a>
                                 </li>
                                 <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="/total-capacity">Total Capacity</a>
+                                </li>
                                 <li>
                                     <a href="/low-capacity">Low Capacity Installations</a>
                                 </li>
@@ -61,6 +64,9 @@
                                     <a href="/elec-cost">Electric Cost</a>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="/barchart">Bar Chart</a>
                         </li>
                     </ul>
     
@@ -122,12 +128,12 @@
                     </li>
                     <br>
                     <li>
-                        <a href="#" id='sidebar-link'>Bar chart</a>
+                        <a href="/barchart" id='sidebar-link'>Bar chart</a>
                     </li>
                 </ul>
             </nav>
-            <div id="myDiv"></div>
-            <div id="table-div">
+            <div id="totalDiv" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"></div>
+           <div id="table-div" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                     <!-- Change the csv file path to modify the table -->
                     <script type="text/javascript" charset="utf-8">
                         d3.text("/static/csv/skin_map_incidence.csv", function (data) {
