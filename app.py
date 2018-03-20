@@ -9,8 +9,8 @@ from flask import (
    redirect)
 import numpy as np
 import pandas as pd
-import plotly.plotly as py
-import plotly.graph_objs as go
+# import plotly.plotly as py
+# import plotly.graph_objs as go
 import matplotlib.pyplot as plt
 
 # 2. Create an app
@@ -63,6 +63,27 @@ def index():
 @app.route("/rawdata")
 def rawdata():
     return render_template("rawdata.html")
+
+@app.route("/heatmap")
+def heatmap():
+    return render_template("heatmap.html")
+
+@app.route("/bar")
+def bar():
+
+    results = db.session.query(Install.abbr, Install.size_one,
+        Install.size_two, Install.size_three).all()
+    labels = []
+    dataS = []
+    dataM = []
+    dataL = []
+    for result in results:
+        labels.append(result[0])
+        dataS.append(result[1])
+        dataM.append(result[2])
+        dataL.append(result[3])
+
+    return jsonify(labels, dataS, dataM, dataL)
 
 @app.route("/cancer-rate")
 def cancer_heatmap():
