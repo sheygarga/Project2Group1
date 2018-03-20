@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>State of the Sun</title>
+
+    <!-- Bring in our bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" id="sidebarCollapse" href="#">State of the Sun</a>
+                </div>
+    
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/">Dashboard
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Heatmaps
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/cancer-rate">Cancer Rate</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="/low-capacity">Low Capacity Installations</a>
+                                </li>
+                                <li>
+                                    <a href="/med-capacity">Medium Capacity Installations</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/large-capacity">Large Capacity Installations</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="/elec-cost">Electric Cost</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+    
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div id="content">
+    
+        </div>
+        <div class="wrapper">
+    
+            <nav id="sidebar">
+                <!-- Sidebar Header -->
+                <div class="sidebar-header">
+                    <h3>Full Size Visualizations
+    
+                </div>
+                <br>
+    
+                <!-- Sidebar Links -->
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="/" id='sidebar-link'>Dashboard</a>
+                    </li>
+                    <br>
+    
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" id="sidebar-link">Heatmaps</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <br>
+                            <li>
+                                <a href="/cancer-rate" id="sidebar-link-nested">Cancer Rate</a>
+                            </li>
+                            <br>
+                            <li>
+                                <p href="#" id="sidebar-link-nested">Installed Capacity</p>
+                                <ul>
+                                    <li style="list-style-type: none;">
+                                        <a href='/total-capacity' id="sidebar-link-double-nested">Total Installed Capacity</a>
+                                    </li>
+                                    <li style="list-style-type: none;">
+                                        <a href='/low-capacity' id="sidebar-link-double-nested">Low Capacity (1-10 kW)</a>
+                                    </li>
+                                    <li style="list-style-type: none;">
+                                        <a href='/med-capacity' id="sidebar-link-double-nested">Medium Capacity (10-100 kW)</a>
+                                    </li>
+                                    <li style="list-style-type: none;">
+                                        <a href='/large-capacity' id="sidebar-link-double-nested">Large Capacity (100+ kW)</a>
+                                    </li>
+                                    <br>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href='/elec-cost' id="sidebar-link-nested">Electric Cost by State</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="#" id='sidebar-link'>Bar chart</a>
+                    </li>
+                </ul>
+            </nav>
+            <div id="myDiv"></div>
+            <div id="table-div">
+                    <!-- Change the csv file path to modify the table -->
+                    <script type="text/javascript" charset="utf-8">
+                        d3.text("/static/csv/skin_map_incidence.csv", function (data) {
+                            var parsedCSV = d3.csv.parseRows(data);
+        
+                            var container = d3.select("#table-div")
+                                .append("table")
+        
+                                .selectAll("tr")
+                                .data(parsedCSV).enter()
+                                .append("tr")
+        
+                                .selectAll("td")
+                                .data(function (d) {
+                                    return d;
+                                }).enter()
+                                .append("td")
+                                .text(function (d) {
+                                    return d;
+                                });
+                        });
+                    </script>
+        
+        
+                </div>
+        </div>
+    
+    </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="static/app.js"></script>
+<script src="static/large-heatmap.js"></script>
+
+</html>

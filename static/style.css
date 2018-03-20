@@ -4,19 +4,24 @@
 }
 
 #sidebar {
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 300px;
+    max-width: 300px;
     min-height: 92vh;
-    background-color: #ffffff;
+    background-color: rgb(0,0,0);
     
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -300px;
     
 }
 
 a {
+    color: 	#f890e7;
+    font-weight: bold;
+}
+
+p {
     color: 	#f890e7;
     font-weight: bold;
 }
@@ -30,4 +35,29 @@ h3 {
 
 #sidebar-link{
     margin-left: 65px;
+}
+
+#sidebar-link-nested{
+    margin-left: 80px;
+}
+#sidebar-link-double-nested{
+    margin-left: 85px;
+    font-size: 12px;
+    list-style-type: none;
+}
+
+#myDiv {
+    width: 50%;
+
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px black solid;
+    font: 12px sans-serif;
+}
+
+td {
+    border: 1px black solid;
+    padding: 5px;
 }
