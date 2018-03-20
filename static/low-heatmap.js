@@ -27,7 +27,9 @@ Plotly.d3.csv("/static/csv/installs_ecost.csv", function (err, rows) {
     locations: unpack(rows, 'abbr'),
     z: hold_converted,
     text: unpack(rows, 'Range'),
-    autocolorscale: true
+    colorscale: [
+      [0, '#F87171'],[0.5,'#F8F871'] ,[1, '#71F871']
+  ]
   }];
 
   var layout = {
@@ -39,7 +41,7 @@ Plotly.d3.csv("/static/csv/installs_ecost.csv", function (err, rows) {
     }
   };
 
-  Plotly.plot(myDiv, data, layout, {
+  Plotly.plot(lowDiv, data, layout, {
     showLink: false
   });
 

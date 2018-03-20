@@ -60,13 +60,6 @@ class Install(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route("/rawdata")
-def rawdata():
-    return render_template("rawdata.html")
-
-@app.route("/heatmap")
-def heatmap():
-    return render_template("heatmap.html")
 
 @app.route("/bar")
 def bar():
@@ -114,7 +107,10 @@ def chartData():
 @app.route("/chart")
 def chart():
     return render_template("chart.html")
-   
+
+@app.route("/barchart")
+def bar_chart():
+    return render_template("bar.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
