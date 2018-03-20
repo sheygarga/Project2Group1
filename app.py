@@ -64,13 +64,36 @@ def index():
 def rawdata():
     return render_template("rawdata.html")
 
-@app.route("/heatmap")
-def heatmap():
-    return render_template("heatmap.html")
+@app.route("/cancer-rate")
+def cancer_heatmap():
+    return render_template("cancerrate.html")
 
+@app.route("/total-capacity")
+def total_heatmap():
+    return render_template("totalCapacity.html")
+@app.route("/low-capacity")
+def low_heatmap():
+    return render_template("lowCapacity.html")
+@app.route("/med-capacity")
+def med_heatmap():
+    return render_template("medCapacity.html")
+@app.route("/large-capacity")
+def high_heatmap():
+    return render_template("largeCapacity.html")
+@app.route("/elec-cost")
+def cost_heatmap():
+    return render_template("elecCost.html")
 
+@app.route("/chartData")
+def chartData():
+    results = db.session.query(
+        Install.state, Install.size_kW, Install.size_one, Install.size_two, Install.size_three).all()
+    return jsonify(results)
 
-
+@app.route("/chart")
+def chart():
+    return render_template("chart.html")
+   
 
 if __name__ == "__main__":
     app.run(debug=True)
