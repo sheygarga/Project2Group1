@@ -9,6 +9,7 @@
     <!-- Bring in our bootstrap stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/style.css">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -35,10 +36,30 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/rawdata">
-                            Raw Data
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Heatmaps
+                            <span class="caret"></span>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/cancer-rate">Cancer Rate</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="/low-capacity">Low Capacity Installations</a>
+                            </li>
+                            <li>
+                                <a href="/med-capacity">Medium Capacity Installations</a>
+                            </li>
+                            
+                            <li>
+                                <a href="/large-capacity">Large Capacity Installations</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="/elec-cost">Electric Cost</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
 
@@ -66,31 +87,52 @@
                     <a href="/" id='sidebar-link'>Dashboard</a>
                 </li>
                 <br>
+
                 <li>
-                        <a href="/rawdata" id='sidebar-link'>Raw Data</a>
-                    </li>
-                    <br>
-                <li>
-                    <a href="#" id='sidebar-link'>Heatmap</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" id="sidebar-link">Heatmaps</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <br>
+                        <li>
+                            <a href="/cancer-rate" id="sidebar-link-nested">Cancer Rate</a>
+                        </li>
+                        <br>
+                        <li>
+                            <p href="#" id="sidebar-link-nested">Installed Capacity</p>
+                            <ul>
+                                <li style="list-style-type: none;">
+                                    <a href='/total-capacity' id="sidebar-link-double-nested">Total Installed Capacity</a>
+                                </li>
+                                <li style="list-style-type: none;">
+                                    <a href='/low-capacity' id="sidebar-link-double-nested">Low Capacity (1-10 kW)</a>
+                                </li>
+                                <li style="list-style-type: none;">
+                                    <a href='/med-capacity' id="sidebar-link-double-nested">Medium Capacity (10-100 kW)</a>
+                                </li>
+                                <li style="list-style-type: none;">
+                                    <a href='/large-capacity' id="sidebar-link-double-nested">Large Capacity (100+ kW)</a>
+                                </li>
+                                <br>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='/elec-cost' id="sidebar-link-nested">Electric Cost by State</a>
+                        </li>
+                    </ul>
                 </li>
                 <br>
                 <li>
-                    <a href="#" id='sidebar-link'>Scatterplot</a>
-                </li>
-                <br>
-                <li>
-                    <a href="#" id='sidebar-link'>Sun Graph</a>
+                    <a href="#" id='sidebar-link'>Bar chart</a>
                 </li>
             </ul>
         </nav>
 
     </div>
-    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="static/app.js"></script>
 
 </html>

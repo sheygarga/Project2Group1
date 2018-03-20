@@ -64,11 +64,25 @@ def index():
 def rawdata():
     return render_template("rawdata.html")
 
-@app.route("/heatmap")
-def heatmap():
-    return render_template("heatmap.html")
+@app.route("/cancer-rate")
+def cancer_heatmap():
+    return render_template("cancerrate.html")
 
-
+@app.route("/total-capacity")
+def total_heatmap():
+    return render_template("totalCapacity.html")
+@app.route("/low-capacity")
+def low_heatmap():
+    return render_template("lowCapacity.html")
+@app.route("/med-capacity")
+def med_heatmap():
+    return render_template("medCapacity.html")
+@app.route("/large-capacity")
+def high_heatmap():
+    return render_template("largeCapacity.html")
+@app.route("/elec-cost")
+def cost_heatmap():
+    return render_template("elecCost.html")
 
 
 
