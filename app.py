@@ -64,7 +64,6 @@ def index():
 def rawdata():
     return render_template("rawdata.html")
 
-<<<<<<< HEAD
 @app.route("/heatmap")
 def heatmap():
     return render_template("heatmap.html")
@@ -116,6 +115,6 @@ def chartData():
 def chart():
     return render_template("chart.html")
    
-   
+
 if __name__ == "__main__":
     app.run(debug=True)
