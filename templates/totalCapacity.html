@@ -134,9 +134,14 @@
             </nav>
             <div id="totalDiv" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"></div>
            <div id="table-div" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                    <!-- Change the csv file path to modify the table -->
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <script type="text/javascript" charset="utf-8">
-                        d3.text("/static/csv/skin_map_incidence.csv", function (data) {
+                        d3.text("/static/csv/total_kw_table.csv", function (data) {
                             var parsedCSV = d3.csv.parseRows(data);
         
                             var container = d3.select("#table-div")
