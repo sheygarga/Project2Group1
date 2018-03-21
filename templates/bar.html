@@ -8,9 +8,11 @@
 
     <!-- Bring in our bootstrap stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- style sheet css -->
     <link rel="stylesheet" href="static/style.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+
 </head>
 
 <body>
@@ -32,12 +34,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li >
                         <a href="/">Dashboard
                             
                         </a>
                     </li>
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Heatmaps
                             <span class="caret"></span>
                         </a>
@@ -55,7 +57,7 @@
                             <li>
                                 <a href="/med-capacity">Medium Capacity Installations</a>
                             </li>
-
+                            
                             <li>
                                 <a href="/large-capacity">Large Capacity Installations</a>
                             </li>
@@ -65,8 +67,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="/barchart">Bar Chart</a>
+                    <li class="active">
+                        <a href="/barchart">Bar Chart<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
 
@@ -76,10 +78,11 @@
         <!-- /.container-fluid -->
     </nav>
     <div id="content">
-
+        
     </div>
+    
     <div class="wrapper">
-
+        
         <nav id="sidebar">
             <!-- Sidebar Header -->
             <div class="sidebar-header">
@@ -90,17 +93,17 @@
 
             <!-- Sidebar Links -->
             <ul class="list-unstyled components">
-                <li>
+                <li class="active">
                     <a href="/" id='sidebar-link'>Dashboard</a>
                 </li>
                 <br>
 
-                <li class="active">
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" id="sidebar-link">Heatmaps</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <br>
-                        <li >
-                            <a href="/cancer-rate" id="sidebar-link-nested">Cancer Rate<span class="sr-only">(current)</span></a>
+                        <li>
+                            <a href="/cancer-rate" id="sidebar-link-nested">Cancer Rate</a>
                         </li>
                         <br>
                         <li>
@@ -131,43 +134,31 @@
                     <a href="/barchart" id='sidebar-link'>Bar chart</a>
                 </li>
             </ul>
+        
         </nav>
-        <div id="cancerDiv" class="col-xs-7 col-sm-7 col-md-7 col-lg-7"></div>
-       <div id="table-div" class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-            <!-- Change the csv file path to modify the table -->
-            <script type="text/javascript" charset="utf-8">
-                d3.text("/static/csv/df_cancer_rates.csv", function (data) {
-                    var parsedCSV = d3.csv.parseRows(data);
-
-                    var container = d3.select("#table-div")
-                        .append("table")
-
-                        .selectAll("tr")
-                        .data(parsedCSV).enter()
-                        .append("tr")
-
-                        .selectAll("td")
-                        .data(function (d) {
-                            return d;
-                        }).enter()
-                        .append("td")
-                        .text(function (d) {
-                            return d;
-                        });
-                });
-            </script>
-
-
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
         </div>
-
     </div>
+    
+    </div>
+
+    
 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<script src="static/app.js"></script>
-<script src="static/cancer-heatmap.js"></script>
+
+<!-- chartjs dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="../static/app.js"></script>
+<script src="../static/bar.js"></script>
+
+
 
 </html>

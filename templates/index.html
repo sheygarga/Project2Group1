@@ -8,8 +8,12 @@
 
     <!-- Bring in our bootstrap stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- style sheet css -->
     <link rel="stylesheet" href="static/style.css">
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
 </head>
 
 <body>
@@ -46,12 +50,15 @@
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
+                                <a href="/total-capacity">Total Capacity</a>
+                            </li>
+                            <li>
                                 <a href="/low-capacity">Low Capacity Installations</a>
                             </li>
                             <li>
                                 <a href="/med-capacity">Medium Capacity Installations</a>
                             </li>
-                            
+
                             <li>
                                 <a href="/large-capacity">Large Capacity Installations</a>
                             </li>
@@ -60,6 +67,9 @@
                                 <a href="/elec-cost">Electric Cost</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="/barchart">Bar Chart</a>
                     </li>
                 </ul>
 
@@ -71,6 +81,7 @@
     <div id="content">
 
     </div>
+
     <div class="wrapper">
 
         <nav id="sidebar">
@@ -90,7 +101,7 @@
 
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" id="sidebar-link">Heatmaps</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <ul class="collapse list-unstyled open" id="homeSubmenu">
                         <br>
                         <li>
                             <a href="/cancer-rate" id="sidebar-link-nested">Cancer Rate</a>
@@ -121,18 +132,84 @@
                 </li>
                 <br>
                 <li>
-                    <a href="#" id='sidebar-link'>Bar chart</a>
+                    <a href="/barchart" id='sidebar-link'>Bar chart</a>
                 </li>
             </ul>
+
         </nav>
 
+
+
+        <div class="container">
+
+
+
+            <div class="row">
+
+
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div id="cancerDiv"></div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div id="totalDiv"></div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div id="lowDiv"></div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div id="medDiv"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div id="largeDiv"></div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div id="elecDiv"></div>
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
+
+
 
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+
+<!-- chartjs dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+<!-- plotly charts calls -->
 <script src="static/app.js"></script>
+<script src="static/bar.js"></script>
+<script src="static/cancer-heatmap.js"></script>
+<script src="static/total-heatmap.js"></script>
+<script src="static/low-heatmap.js"></script>
+<script src="static/med-heatmap.js"></script>
+<script src="static/large-heatmap.js"></script>
+<script src="static/cost-heatmap.js"></script>
+
+
+
 
 </html>
