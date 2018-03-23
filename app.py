@@ -1,3 +1,4 @@
+import os 
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, desc, inspect
@@ -112,5 +113,7 @@ def chart():
 def bar_chart():
     return render_template("bar.html")
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port = port, debug=True)
+    #app.run(debug=True)
