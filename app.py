@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 # import plotly.plotly as py
 # import plotly.graph_objs as go
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # 2. Create an app
